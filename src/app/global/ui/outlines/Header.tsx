@@ -43,53 +43,8 @@ const StyledHeader = styled.header`
     .layout-width {
       display: flex;
       justify-content: space-between;
-      height: 150px;
+      height: 100px;
       align-items: center;
-    }
-  }
-`
-const StyledForm = styled.form`
-  width: 350px;
-  display: flex;
-  border: 5px solid ${dark};
-
-  button {
-    width: 45px;
-    background: ${dark};
-    color: ${white};
-    border: 0;
-    cursor: pointer;
-
-    svg {
-      font-size: ${big};
-    }
-  }
-
-  input {
-    flex-grow: 1;
-    border: 0;
-    padding: 10px;
-    font-size: ${medium};
-  }
-`
-
-const StyledMenu = styled.nav`
-  background: ${primary};
-
-  .layout-width {
-    display: flex;
-    height: 50px;
-
-    a {
-      color: ${light};
-      font-size: ${medium};
-      padding: 0 40px;
-      line-height: 50px;
-
-      &:hover,
-      &.on {
-        background: ${dark};
-      }
     }
   }
 `
@@ -112,9 +67,6 @@ const Header = () => {
             {isLogin ? (
               <>
                 {name}({email})님,
-                <a href="/mypage">
-                  <MdContactPage /> 마이페이지
-                </a>
                 <a href="/member/api/logout">
                   <SlLogout /> 로그아웃
                 </a>
@@ -138,23 +90,9 @@ const Header = () => {
           <Link href="/" className="logo">
             <Image src={logo} alt="로고" priority={true} />
           </Link>
-
-          <StyledForm method="GET" action="/board/search" autoComplete="off">
-            <input type="text" name="skey" placeholder="검색어를 입력하세요" />
-            <button type="submit">
-              <FaSearch />
-            </button>
-          </StyledForm>
         </div>
       </div>
       {/* logo-search */}
-      <StyledMenu>
-        <div className="layout-width">
-          <a href="#">메뉴1</a>
-          <a href="#">메뉴2</a>
-          <a href="#">메뉴3</a>
-        </div>
-      </StyledMenu>
     </StyledHeader>
   )
 }

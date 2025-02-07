@@ -40,9 +40,8 @@ dd {
 
 /* 공통 */
 .layout-width {
-  max-width: 1300px;
-  min-width: 1000px;
-  margin: 0 auto;
+  min-width: 1300px;
+  padding: 0 auto;
 }
 
 .main-content {
