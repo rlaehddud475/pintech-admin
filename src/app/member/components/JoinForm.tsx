@@ -119,6 +119,7 @@ const JoinForm = ({ form, onClick, onChange, onSelectDate, actionState }) => {
           color="dark"
           value={form?.phoneNumber ?? ''}
           onChange={onChange}
+          color="dark"
         />
         <Messages color="danger">{errors?.phoneNumber}</Messages>
         <div className="row">

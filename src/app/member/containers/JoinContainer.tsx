@@ -1,12 +1,13 @@
 'use client'
 import JoinForm from '../components/JoinForm'
-import { useSearchParams } from 'next/navigation'
+import { redirect, useSearchParams } from 'next/navigation'
 import React, { useState, useCallback, useActionState } from 'react'
-import { processJoin } from '../../services/actions'
+import { processJoin } from '../services/actions'
 const JoinContainer = () => {
-  const searchParms = useSearchParams()
-  const actionState = useActionState(processJoin, searchParms)
-  const [form, setForm] = useState({})
+  const searchParams = useSearchParams()
+  const params = { redirectUrl: searchParams.get('redirectUrl') }
+  const actionState = useActionState(processJoin, searchParams)
+  const [form, setForm] = useState({ gender: 'FEMALE' })
   const onChange = useCallback((e) => {
     setForm((form) => ({ ...form, [e.target.name]: e.target.value }))
   }, [])
