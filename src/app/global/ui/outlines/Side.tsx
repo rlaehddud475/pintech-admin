@@ -1,5 +1,7 @@
 'use client'
-import React from 'react'
+import React, { useContext } from 'react'
+import classNames from 'classnames'
+import CommonContext from '../../contexts/CommonContext'
 import styled from 'styled-components'
 import sizes from '../../styles/sizes'
 import colors from '../../styles/colors'
@@ -25,10 +27,17 @@ const StyledSideMenus = styled.aside`
   }
 `
 const Side = () => {
+  const {
+    state: { menuCode },
+  } = useContext(CommonContext)
   return (
     <StyledSideMenus>
-      <a href="/member">회원 관리</a>
-      <a href="/board">계시판 관리</a>
+      <a href="/member" className={classNames({ on: menuCode === 'member' })}>
+        회원 관리
+      </a>
+      <a href="/board" className={classNames({ on: menuCode === 'board' })}>
+        계시판 관리
+      </a>
     </StyledSideMenus>
   )
 }
