@@ -12,22 +12,23 @@ const StyledSideMenus = styled.aside`
     color: ${dark};
     font-size: ${big};
     display: block;
-    height: 45px;
-    line-height: 43px;
-    & .on{
-        background: ${dark};
-        color: ${white};
-    }
-    & + & {
-      board-top: 2px solid ${dark};
-      li
-    }
+    height: 55px;
+    line-height: 53px;
+    text-align: center;
+  }
+  a .on {
+    background: ${dark};
+    color: ${white};
+  }
+  a + a {
+    board-top: 2px solid ${dark};
   }
 `
 const Side = () => {
   return (
     <StyledSideMenus>
-      <a href=""></a>
+      <a href="/member">회원 관리</a>
+      <a href="/board">계시판 관리</a>
     </StyledSideMenus>
   )
 }
