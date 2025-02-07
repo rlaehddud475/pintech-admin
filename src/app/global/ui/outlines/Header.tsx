@@ -10,11 +10,14 @@ import colors from '../../styles/colors'
 import sizes from '../../styles/sizes'
 import logo from '../../assets/images/logo.png'
 import useUser from '../../hooks/useUser'
-
-const { white, primary, light, dark } = colors
-const { medium, big } = sizes
+import classNames from 'classnames'
+const { light } = colors
+const { big } = sizes
 
 const StyledHeader = styled.header`
+  & .line {
+    border-bottom: 1px solid ${light};
+  }
   .site-top {
     background: ${light};
     height: 45px;
@@ -50,12 +53,12 @@ const StyledHeader = styled.header`
 `
 
 const Header = () => {
-  const { userInfo, isLogin } = useUser()
+  const { userInfo, isLogin, isAdmin } = useUser()
   const email = userInfo?.email
   const name = userInfo?.name
 
   return (
-    <StyledHeader>
+    <StyledHeader className={classNames({ line: isAdmin })}>
       <div className="site-top">
         <div className="layout-width">
           <div className="left">
