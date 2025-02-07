@@ -7,12 +7,18 @@ import { MainTitle } from '../components/StyledTitle'
 import { unauthorized, usePathname, useSearchParams } from 'next/navigation'
 export default function WithUserContainer(UserContainer) {
   const { isLogin, isAdmin } = useUser()
-  if (!isAdmin) {
-    unauthorized()
-  }
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const redirectUrl = `${pathname}?${searchParams}`
+  if (
+    isLogin &&
+    !isAdmin &&
+    !redirectUrl.includes('/member/login') &&
+    !redirectUrl.includes('/member/join')
+  ) {
+    unauthorized()
+  }
+
   return isLogin ? (
     <UserContainer />
   ) : (
