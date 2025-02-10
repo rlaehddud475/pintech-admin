@@ -44,8 +44,9 @@ const ConfigForm = ({ form, onChange, onClick, actionState }) => {
       <input
         type="hidden"
         name="locationAfterWriting"
-        value={form?.open ?? 'list'}
+        value={form?.locationAfterWriting ?? 'list'}
       />
+      <input type="hidden" name="skin" value={form?.skin ?? 'default'} />
       <TableCols>
         <tbody>
           <tr>
