@@ -1,21 +1,53 @@
 import React from 'react'
 import styled from 'styled-components'
 import { TableRows } from '@/app/global/components/Tables'
-import { Md10K, MdCheckBox, MdCheckBoxOutlineBlank } from 'react-icons/md'
-const StyledForm = styled.form``
+import { MdCheckBox, MdCheckBoxOutlineBlank } from 'react-icons/md'
+
+const StyledForm = styled.form`
+  th:nth-of-type(1) {
+    width: 40px;
+  }
+
+  th:nth-of-type(2) {
+    width: 150px;
+  }
+
+  th:nth-of-type(3) {
+    width: 250px;
+  }
+
+  th:nth-of-type(4) {
+    width: 100px;
+  }
+`
+
 const ConfigList = () => {
   return (
     <>
       <StyledForm>
         <TableRows>
           <thead>
-            <th>
-              <MdCheckBoxOutlineBlank />
-            </th>
+            <tr>
+              <th>
+                <MdCheckBoxOutlineBlank />
+              </th>
+              <th>게시판 ID</th>
+              <th>게시판 이름</th>
+              <th>사용여부</th>
+              <th></th>
+            </tr>
           </thead>
+          <tbody>
+            <tr>
+              <td colSpan={5} className="no-data">
+                게시판이 없습니다.
+              </td>
+            </tr>
+          </tbody>
         </TableRows>
       </StyledForm>
     </>
   )
 }
+
 export default React.memo(ConfigList)

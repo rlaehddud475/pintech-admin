@@ -37,7 +37,7 @@ export const TableRows = styled.table`
       padding: 7px 10px;
       font-size: 1.15rem;
 
-      & + & {
+      th + th {
         border-left: 1px solid #f8f8f8;
       }
     }

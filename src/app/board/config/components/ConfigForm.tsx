@@ -1,18 +1,21 @@
 import React from 'react'
+import styled from 'styled-components'
 import { TableCols } from '@/app/global/components/Tables'
-import { styled } from 'styled-components'
 import { Input } from '@/app/global/components/FormComponents'
-import { ButtonGroup, BigButton } from '@/app/global/components/Buttons'
+import { BigButton, ButtonGroup } from '@/app/global/components/Buttons'
+
 const StyledForm = styled.form`
-  tbale {
+  table {
     th {
       width: 180px;
     }
-  }
-  &:last-of-type {
-    margin-bottom: 30px;
+
+    &:last-of-type {
+      margin-bottom: 30px;
+    }
   }
 `
+
 const ConfigForm = () => {
   return (
     <StyledForm>
@@ -26,7 +29,7 @@ const ConfigForm = () => {
           </tr>
         </tbody>
       </TableCols>
-      <ButtonGroup className="button-group center" width={450}>
+      <ButtonGroup width={450} className="button-group center">
         <BigButton type="reset" color="white">
           다시입력
         </BigButton>
@@ -37,4 +40,5 @@ const ConfigForm = () => {
     </StyledForm>
   )
 }
+
 export default React.memo(ConfigForm)
