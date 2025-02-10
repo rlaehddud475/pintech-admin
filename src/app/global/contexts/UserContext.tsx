@@ -11,10 +11,12 @@ const UserContext = createContext({
 })
 const UserProvider = ({ children, _userInfo }) => {
   const [userInfo, setUserInfo] = useState(_userInfo)
-  const [isLogin, setIsLogin] = useState(_userInfo ? true : false)
-  const [isAdmin, setIsAdmin] = useState(
-    _userInfo && _userInfo._authorities.includes('ADMIN'),
-  )
+  // const [isLogin, setIsLogin] = useState(_userInfo ? true : false)
+  const [isAdmin, setIsAdmin] = useState(true)
+  const [isLogin, setIsLogin] = useState(true)
+  // const [isAdmin, setIsAdmin] = useState(
+  //   _userInfo && _userInfo._authorities.includes('ADMIN'),
+  // )
   useEffect(() => {
     if (_userInfo) {
       setUserInfo(_userInfo)
