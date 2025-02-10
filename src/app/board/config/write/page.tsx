@@ -1,6 +1,12 @@
 import React from 'react'
 import ConfigContainer from '../containers/ConfigContainer'
+import { MainTitle } from '@/app/global/components/StyledTitle'
 const WritePage = () => {
-  return <ConfigContainer />
+  return (
+    <>
+      <MainTitle>게시판 게시글 등록</MainTitle>
+      <ConfigContainer />
+    </>
+  )
 }
 export default React.memo(WritePage)

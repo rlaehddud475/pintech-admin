@@ -116,7 +116,9 @@ export const ExtraButton = styled.button`
 export const ButtonGroup = styled.div`
   display: flex;
   width: 100%;
-
+  &.center {
+    margin: 0 auto;
+  }
   button {
     width: 0;
     flex-grow: 1;
@@ -129,6 +131,6 @@ export const ButtonGroup = styled.div`
   ${({ width }) =>
     width &&
     css`
-      width: ${width};
+      width: ${width}px;
     `}
 `

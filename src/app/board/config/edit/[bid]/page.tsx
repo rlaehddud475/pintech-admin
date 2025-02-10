@@ -1,7 +1,13 @@
 import React from 'react'
 import ConfigContainer from '../../containers/ConfigContainer'
+import { MainTitle } from '@/app/global/components/StyledTitle'
 const EditPage = ({ params }) => {
   const { bid } = params
-  return <ConfigContainer bid={bid} />
+  return (
+    <>
+      <MainTitle>게시판 설정수정</MainTitle>
+      <ConfigContainer bid={bid} />
+    </>
+  )
 }
 export default React.memo(EditPage)
