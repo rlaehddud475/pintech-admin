@@ -6,8 +6,8 @@ export default function useMenuCode(code) {
     state: { menuCode },
     actions: { setMenuCode },
   } = useContext(CommonContext)
-  useEffect( () {
+  useEffect(() => {
     setMenuCode(code)
   }, [code, setMenuCode])
-    return [menuCode,setMenuCode]
+  return [menuCode, setMenuCode]
 }
