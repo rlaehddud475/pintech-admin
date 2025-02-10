@@ -122,6 +122,7 @@ export const ButtonGroup = styled.div`
   button {
     width: 0;
     flex-grow: 1;
+    cursor: pointer;
 
     & + & {
       margin-left: 3px;
