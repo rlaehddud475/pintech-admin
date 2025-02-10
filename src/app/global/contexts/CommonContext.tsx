@@ -7,7 +7,7 @@ import useUser from '../hooks/useUser'
 import loadable from '@loadable/component'
 const Side = loadable(() => import('../ui/outlines/Side'))
 setDefaultLocale(ko)
-
+const SubMenus = loadable(() => import('../components/SubMenus'))
 type ContextType = {
   state?: { title?: string; menuCode?: string; subMenuCode?: string }
   actions?: {
@@ -32,7 +32,10 @@ const CommonProvider = ({ children }) => {
         <>
           <Helmet>{title && <title>{title}</title>}</Helmet>
           {isAdmin && <Side />}
-          {children}
+          <section>
+            {isAdmin && <SubMenus />}
+            {children}
+          </section>
         </>
       </HelmetProvider>
     </CommonContext.Provider>
