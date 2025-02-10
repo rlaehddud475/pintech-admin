@@ -35,7 +35,10 @@ const Side = () => {
       <a href="/member" className={classNames({ on: menuCode === 'member' })}>
         회원 관리
       </a>
-      <a href="/board" className={classNames({ on: menuCode === 'board' })}>
+      <a
+        href="/board/config/list"
+        className={classNames({ on: menuCode === 'board' })}
+      >
         계시판 관리
       </a>
     </StyledSideMenus>
