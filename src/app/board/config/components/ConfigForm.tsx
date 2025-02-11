@@ -324,7 +324,7 @@ const ConfigForm = ({ form, onChange, onClick, actionState }) => {
               <Textarea
                 name="category"
                 placeholder="분류 여러개는 엔터키를 눌러서 다음칸에 입력"
-                height={200}
+                style={{ height: '200px' }}
                 value={form?.category ?? ''}
                 onChange={onChange}
               ></Textarea>
@@ -455,7 +455,7 @@ const ConfigForm = ({ form, onChange, onClick, actionState }) => {
         </tbody>
       </TableCols>
 
-      <ButtonGroup width={450} className="button-group center">
+      <ButtonGroup style={{ width: '450px' }} className="button-group center">
         <BigButton type="reset" color="white" disabled={isPending}>
           다시입력
         </BigButton>

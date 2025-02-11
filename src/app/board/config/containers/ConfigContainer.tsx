@@ -9,6 +9,7 @@ import { updateBoard } from '../services/actions'
 import ConfigForm from '../components/ConfigForm'
 import useMenuCode from '@/app/global/hooks/useMenuCode'
 import { getBoard } from '../services/actions'
+
 const initialValue = {
   mode: 'add',
   open: false,
@@ -24,24 +25,33 @@ const initialValue = {
   writeAuthority: 'ALL',
   commentAuthority: 'ALL',
 }
-const ConfigContainer = ({ bid }: { bid?: string | undefined } | undefined) => {
+
+const ConfigContainer = ({ bid }: { bid?: string }) => {
   useMenuCode('board', 'configWrite')
   const [form, setForm] = useState(initialValue)
-  const actionState = useActionState(updateBoard)
+  const actionState = useActionState(updateBoard, initialValue)
+
+  // Fix: Async function now gets called
   useLayoutEffect(() => {
-    ;async () => {
+    const fetchBoardData = async () => {
       try {
         const board = await getBoard(bid)
         if (board) {
           board.mode = 'edit'
           setForm(board)
         }
-      } catch (err) {}
+      } catch (err) {
+        console.error('Error fetching board data:', err) // err 사용
+      }
     }
+
+    fetchBoardData() // 호출 추가
   }, [bid])
+
   const onClick = useCallback((field, value) => {
     setForm((form) => ({ ...form, [field]: value }))
   }, [])
+
   const onChange = useCallback((e) => {
     setForm((form) => ({ ...form, [e.target.name]: e.target.value }))
   }, [])
