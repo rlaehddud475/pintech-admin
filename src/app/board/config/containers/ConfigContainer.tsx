@@ -8,6 +8,7 @@ import React, {
 import { updateBoard } from '../services/actions'
 import ConfigForm from '../components/ConfigForm'
 import useMenuCode from '@/app/global/hooks/useMenuCode'
+import { getBoard } from '../services/actions'
 const initialValue = {
   mode: 'add',
   open: false,
@@ -23,10 +24,21 @@ const initialValue = {
   writeAuthority: 'ALL',
   commentAuthority: 'ALL',
 }
-const ConfigContainer = ({ bid }: { bid?: string } | undefined) => {
+const ConfigContainer = ({ bid }: { bid?: string | undefined } | undefined) => {
   useMenuCode('board', 'configWrite')
   const [form, setForm] = useState(initialValue)
   const actionState = useActionState(updateBoard)
+  useLayoutEffect(() => {
+    ;async () => {
+      try {
+        const board = await getBoard(bid)
+        if (board) {
+          board.mode = 'edit'
+          setForm(board)
+        }
+      } catch (err) {}
+    }
+  }, [bid])
   const onClick = useCallback((field, value) => {
     setForm((form) => ({ ...form, [field]: value }))
   }, [])

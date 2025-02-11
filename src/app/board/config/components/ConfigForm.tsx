@@ -85,12 +85,20 @@ const ConfigForm = ({ form, onChange, onClick, actionState }) => {
           <tr>
             <th>게시판 ID</th>
             <td>
-              <Input
-                type="text"
-                name="bid"
-                value={form?.bid ?? ''}
-                onChange={onChange}
-              />
+              {form?.mode === 'edit' ? (
+                'bid'
+              ) : (
+                <>
+                  {' '}
+                  <Input
+                    type="text"
+                    name="bid"
+                    value={form?.bid ?? ''}
+                    onChange={onChange}
+                  />
+                </>
+              )}
+
               <Messages color="danger">{errors?.bid}</Messages>
             </td>
           </tr>
